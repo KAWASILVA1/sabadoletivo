@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilizando o JSON com Comidas</title>
+</head>
+
+<body>
+    <div id="comidas"></div>
+    <script>
+        let divComidas = document.querySelector("#comidas");
+        fetch("dados.json").then((response) => {
+            response.json().then((dados) => {
+                dados.comidas.map((comida) => {
+                    divComidas.innerHTML += ` <li> ${comida.nome} - Tipo: ${comida.tipo}</li>`;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
